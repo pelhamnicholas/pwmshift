@@ -23,8 +23,10 @@ class Display {
         ~Display();
         virtual void setOutput(const int &, const int &, const int &) 
             = 0;
-        void update();
+        void createOutputBytes();
         void updateLED(const int &, const int &);
+        void updateLED(const int &, const int &, const int &, 
+                const int &);
         void output();
 };
 

@@ -9,7 +9,7 @@ class COutput : public Output {
     public:
         COutput(const int & data, const int & clock, const int & latch)
             : Output(data, clock, latch) {};
-        void shiftOut(const unsigned char &);
+        void myShiftOut(const unsigned char &);
 };
 
 #endif
