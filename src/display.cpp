@@ -14,15 +14,22 @@ Display::~Display() {
     delete outputByte;
     delete _output;
 }
-/*
+
 bool Display::resetClock() {
-    if (clock > 255) {
+    if (clock >= pwmMax) {
         clock = 0;
         return true;
     }
     return false;
 }
-*/
+
+bool Display::setBit(int & pwmVal) {
+    if (++clock >= pwmVal) {
+        return true;
+    }
+    return false;
+}
+
 /*
  * update: creates outputBytes to be shifted out
  *         This should probably be in output()

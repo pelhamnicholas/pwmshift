@@ -10,9 +10,10 @@ class Display {
         int * ledPtr; // Find a better way to handle this
         unsigned char * outputByte;
         //unsigned char clock;
-
-        virtual bool resetClock() = 0;
-        virtual bool setBit(int &) = 0;
+        unsigned char clock;
+        
+        bool resetClock();
+        bool setBit(int &);
 
     protected:
         int pwmMax;

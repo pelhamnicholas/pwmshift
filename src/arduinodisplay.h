@@ -7,9 +7,6 @@
 
 class ArduinoDisplay : public Display {
     private:
-        unsigned char clock;
-        bool resetClock();
-        bool setBit(int &);
 
     public:
         ArduinoDisplay(int, int);
