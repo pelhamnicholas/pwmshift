@@ -7,8 +7,7 @@
 
 class ArduinoDisplay : public Display {
     private:
-        int clock;
-
+        unsigned char clock;
         bool resetClock();
         bool setBit(int &);
 

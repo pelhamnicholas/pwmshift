@@ -17,8 +17,7 @@ bool ArduinoDisplay::resetClock() {
 }
 
 bool ArduinoDisplay::setBit(int & pwmVal) {
-    unsigned long currentTime = millis();
-    if (currentTime - lastTime >= pwmVal) {
+    if (millis() - lastTime  >= pwmVal) {
         return true;
     }
     return false;
@@ -34,7 +33,7 @@ bool ArduinoDisplay::resetClock() {
 }
 
 bool ArduinoDisplay::setBit(int & pwmVal) {
-    if (clock >= pwmVal) {
+    if (++clock >= pwmVal) {
         return true;
     }
     return false;

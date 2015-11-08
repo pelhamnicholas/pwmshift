@@ -9,6 +9,7 @@ class Display {
         int * ledArray;
         int * ledPtr; // Find a better way to handle this
         unsigned char * outputByte;
+        //unsigned char clock;
 
         virtual bool resetClock() = 0;
         virtual bool setBit(int &) = 0;
@@ -29,5 +30,12 @@ class Display {
                 const int &);
         void output();
 };
+
+#define addToByte(outputByte, clock, pwmVal) \
+{ \
+    asm volatile ("cp %0, %1" : : "r" (clock), "r" (pwmVal): ); \
+    asm volatile ("ror %0" : "+r" (outputByte) : "r" (outputByte) : ); \
+}
+
 
 #endif
