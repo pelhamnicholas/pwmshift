@@ -40,7 +40,7 @@ void Display::createOutputBytes() {
     for (int i = 0; i < numLEDs*3; ++i) {
         // set the bit in the byte
         if (setBit(ledArray[i]))
-            outputByte[i/8] |= 1 << i;
+            outputByte[i/8] |= (1 << i);
         else
             outputByte[i/8] &= ~(1 << i);
     }
@@ -118,7 +118,7 @@ void Display::updateALLhsv(const int & h, const int & s,
  * output: outputs stuff
  */
 void Display::output() {
-    for (int i = numLEDs*3/8; i > 0; --i)
-        _output->myShiftOut(outputByte[i-1]);
+    for (int i = 0; i < numLEDs*3/8; ++i)
+        _output->myShiftOut(outputByte[i]);
     _output->toggleLatch();
 }
